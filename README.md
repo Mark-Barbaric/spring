@@ -16,3 +16,8 @@ spring version
 ## Initialize empty maven project
 
 mvn archetype:generate -DgroupId=com.example -DartifactId=my-empty-java-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+## Building sprint boot application
+
+>`mvn clean install`

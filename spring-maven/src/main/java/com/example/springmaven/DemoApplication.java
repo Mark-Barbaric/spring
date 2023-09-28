@@ -3,8 +3,8 @@ package com.example.springmaven;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.cloud.gateway.route.build.RouterLocatorBuilder;
-import org.springframework.context.annocation.Bean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -14,10 +14,11 @@ public class DemoApplication {
 	}
 
 	@Bean
-	public RouteLocator customRouteLocator(RouterLocatorBuilder builder) {
+	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
 			.route("service1_route", r -> r
-				.path("/service1/**"))
-				.uri("http://localhost:8081");
+				.path("/service1/**")
+				.uri("http://localhost:8081"))
+			.build();
 	}
 }
